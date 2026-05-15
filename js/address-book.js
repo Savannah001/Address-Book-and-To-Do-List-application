@@ -7,3 +7,7 @@ function Contact(firstName, lastName, phone, email, address) {
   this.email = email || '';
   this.address = address || '';
 }
+//Returns the fullname - first and last
+Contact.prototype.fullName = function() {
+  return this.firstName + ' ' + this.lastName;
+};
