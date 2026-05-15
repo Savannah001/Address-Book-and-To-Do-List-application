@@ -33,3 +33,19 @@ ToDoList.prototype.getActiveTasks = function() {
   }
   return active;
 };
+//Returning completed tasks
+ToDoList.prototype.getCompletedTasks = function() {
+  var completed = [];
+  for (var i = 0; i < this.tasks.length; i++) {
+    if (this.tasks[i].completed === true) {
+      completed.push(this.tasks[i]);
+    }
+  }
+  return completed;
+};
+ToDoList.prototype.getTaskByIndex = function(index) {
+  if (index >= 0 && index < this.tasks.length) {
+    return this.tasks[index];
+  }
+  return null;
+};
