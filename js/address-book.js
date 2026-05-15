@@ -19,3 +19,7 @@ function AddressBook() {
 AddressBook.prototype.addContact = function(contact) {
   this.contacts.push(contact);
 };
+//Return all contacts in the address book
+AddressBook.prototype.getAllContacts = function() {
+  return this.contacts;
+};
