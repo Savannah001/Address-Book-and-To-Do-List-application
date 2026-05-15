@@ -115,3 +115,85 @@ function deleteContactAndGoBack(index) {
   document.querySelector('#section-address .card:nth-child(1)').style.display = '';
   document.querySelector('#section-address .card:nth-child(2)').style.display = '';
 }
+// Set up the task form and display functions
+function initTodoUI() {
+  var form = document.getElementById('task-form');
+  // Handle form submission
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop the page from refreshing
+
+    // Get the task description from the input
+    var description = document.getElementById('taskDescription').value.trim();
+    // Create a new Task object using the constructor
+    var newTask = new Task(description);
+    // Add the task to the to-do list
+    myToDoList.addTask(newTask);
+    // Reset the form
+    form.reset();
+    // Refresh the task lists on the page
+    renderTaskLists();
+  });
+  // Initial render
+  renderTaskLists();
+}
+// Display all active and completed tasks
+function renderTaskLists() {
+  renderActiveTasks();
+  renderCompletedTasks();
+}
+// Display only the active tasks
+function renderActiveTasks() {
+  var container = document.getElementById('task-list');
+  var activeTasks = myToDoList.getActiveTasks();
+  // If no active tasks, show empty message
+  if (activeTasks.length === 0) {
+    container.innerHTML = '<p class="empty-message">No tasks added yet. Add your first task above.</p>';
+    return;
+  }
+  // Creating an active tasks
+  var html = '';
+  for (var i = 0; i < activeTasks.length; i++) {
+    var originalIndex = myToDoList.getAllTasks().indexOf(activeTasks[i]);
+    html = html + '<div class="task-item">';
+    html = html + '<span class="task-text">' + activeTasks[i].description + '</span>';
+    html = html + '<div class="task-actions">';
+    html = html + '<button class="btn-success" onclick="completeTask(' + originalIndex + ')">Done</button>';
+    html = html + '<button class="btn-danger" onclick="deleteTask(' + originalIndex + ')">Delete</button>';
+    html = html + '</div>';
+    html = html + '</div>';
+  }
+  container.innerHTML = html;
+}
+// completed tasks
+function renderCompletedTasks() {
+  var container = document.getElementById('completed-list');
+  var section = document.getElementById('completed-section');
+  var completedTasks = myToDoList.getCompletedTasks();
+  if (completedTasks.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = '';
+  var html = '';
+  for (var i = 0; i < completedTasks.length; i++) {
+    var originalIndex = myToDoList.getAllTasks().indexOf(completedTasks[i]);
+    html = html + '<div class="completed-item">';
+    html = html + '<span>' + completedTasks[i].description + '</span>';
+    html = html + '<button class="btn-danger" onclick="deleteTask(' + originalIndex + ')">Delete</button>';
+    html = html + '</div>';
+  }
+  container.innerHTML = html;
+}
+// Marking a task as complete
+function completeTask(index) {
+  var task = myToDoList.getTaskByIndex(index);
+  if (task) {
+    task.markComplete();
+    renderTaskLists();
+  }
+}
+// Delete a task
+function deleteTask(index) {
+  myToDoList.deleteTask(index);
+  renderTaskLists();
+}
