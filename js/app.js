@@ -72,3 +72,14 @@ function renderContactList() {
     container.innerHTML = '<p class="empty-message">No contacts added yet. Add your first contact above.</p>';
     return;
   }
+    // list of contacts as HTML
+  var html = '';
+  for (var i = 0; i < contacts.length; i++) {
+    html = html + '<div class="contact-item" onclick="showContactDetail(' + i + ')">';
+    html = html + '<span class="contact-name">' + contacts[i].fullName() + '</span>';
+    html = html + '<span class="contact-phone">' + (contacts[i].phone || 'No phone') + '</span>';
+    html = html + '</div>';
+  }
+
+  container.innerHTML = html;
+}
