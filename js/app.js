@@ -107,3 +107,11 @@ function showContactDetail(index) {
   // detail card
   document.getElementById('contact-detail-card').style.display = '';
 }
+//Deleting a contact
+function deleteContactAndGoBack(index) {
+  myAddressBook.deleteContact(index);
+  renderContactList();
+  document.getElementById('contact-detail-card').style.display = 'none';
+  document.querySelector('#section-address .card:nth-child(1)').style.display = '';
+  document.querySelector('#section-address .card:nth-child(2)').style.display = '';
+}
