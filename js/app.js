@@ -24,3 +24,30 @@ function initTabs() {
     sectionAddress.classList.remove('active');
   });
 }
+// contact form and display functions
+function initAddressBookUI() {
+  var form = document.getElementById('contact-form');
+
+  // submission form
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Getting values from the form fields
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var address = document.getElementById('address').value.trim();
+
+    // Creating a new Contact object using the constructor
+    var newContact = new Contact(firstName, lastName, phone, email, address);
+
+    // Adding the contact to the address book
+    myAddressBook.addContact(newContact);
+
+    // Resetting the form fields
+    form.reset();
+
+    // Refreshing the contact list on the page
+    renderContactList();
+  });
