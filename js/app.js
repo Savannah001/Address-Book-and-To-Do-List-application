@@ -83,3 +83,27 @@ function renderContactList() {
 
   container.innerHTML = html;
 }
+// Showing the full details of a single contact
+function showContactDetail(index) {
+  var contact = myAddressBook.getContactByIndex(index);
+  if (!contact) return;
+
+  // Hiding list and form
+  document.querySelector('#section-address .card:nth-child(1)').style.display = 'none';
+  document.querySelector('#section-address .card:nth-child(2)').style.display = 'none';
+
+  // detail view
+  var detailContent = document.getElementById('contact-detail-content');
+  var html = '';
+  html = html + '<div class="detail-row"><div class="detail-label">Name</div><div class="detail-value">' + contact.fullName() + '</div></div>';
+  html = html + '<div class="detail-row"><div class="detail-label">Phone</div><div class="detail-value">' + (contact.phone || 'Not provided') + '</div></div>';
+  html = html + '<div class="detail-row"><div class="detail-label">Email</div><div class="detail-value">' + (contact.email || 'Not provided') + '</div></div>';
+  html = html + '<div class="detail-row"><div class="detail-label">Address</div><div class="detail-value">' + (contact.address || 'Not provided') + '</div></div>';
+
+  // delete button
+  html = html + '<button class="btn-danger" style="margin-top:1rem;" onclick="deleteContactAndGoBack(' + index + ')">Delete This Contact</button>';
+
+  detailContent.innerHTML = html;
+  // detail card
+  document.getElementById('contact-detail-card').style.display = '';
+}
