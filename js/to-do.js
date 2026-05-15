@@ -19,3 +19,7 @@ function ToDoList() {
 ToDoList.prototype.addTask = function(task) {
   this.tasks.push(task);
 };
+//Returning all tasks both completed and incompleted
+ToDoList.prototype.getAllTasks = function() {
+  return this.tasks;
+};
