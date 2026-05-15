@@ -11,3 +11,7 @@ function Contact(firstName, lastName, phone, email, address) {
 Contact.prototype.fullName = function() {
   return this.firstName + ' ' + this.lastName;
 };
+//address book constructor - to manage collection of books
+function AddressBook() {
+  this.contacts = [];
+}
