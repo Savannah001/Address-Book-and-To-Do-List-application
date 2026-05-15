@@ -23,3 +23,10 @@ AddressBook.prototype.addContact = function(contact) {
 AddressBook.prototype.getAllContacts = function() {
   return this.contacts;
 };
+//Finding a specific contact
+AddressBook.prototype.getContactByIndex = function(index) {
+  if (index >= 0 && index < this.contacts.length) {
+    return this.contacts[index];
+  }
+  return null;
+};
