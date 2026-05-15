@@ -3,7 +3,8 @@
 A web application for managing contacts and daily tasks. Built with JavaScript using constructors and prototypes.
 
 **Author:** Danson Karanja  
-**Live Site:** https://savannah001.github.io/Address-Book-and-To-Do-List-application/? 
+**Live Site:** https://savannah001.github.io/Address-Book-and-To-Do-List-application/
+
 **Repository:** https://github.com/Savannah001/Address-Book-and-To-Do-List-application
 
 
