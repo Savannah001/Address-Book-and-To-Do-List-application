@@ -15,3 +15,7 @@ Contact.prototype.fullName = function() {
 function AddressBook() {
   this.contacts = [];
 }
+//Adding contact to the address book
+AddressBook.prototype.addContact = function(contact) {
+  this.contacts.push(contact);
+};
