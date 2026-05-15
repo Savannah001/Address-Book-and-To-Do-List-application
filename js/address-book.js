@@ -38,3 +38,7 @@ AddressBook.prototype.deleteContact = function(index) {
   }
   return false;
 };
+//Return total number of contacts
+AddressBook.prototype.contactCount = function() {
+  return this.contacts.length;
+};
