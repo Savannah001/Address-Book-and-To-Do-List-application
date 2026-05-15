@@ -15,3 +15,7 @@ Task.prototype.markIncomplete = function() {
 function ToDoList() {
   this.tasks = [];
 }
+//Adding task to the list
+ToDoList.prototype.addTask = function(task) {
+  this.tasks.push(task);
+};
