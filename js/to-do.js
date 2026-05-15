@@ -49,3 +49,14 @@ ToDoList.prototype.getTaskByIndex = function(index) {
   }
   return null;
 };
+//Deleting  a task
+ToDoList.prototype.deleteTask = function(index) {
+  if (index >= 0 && index < this.tasks.length) {
+    this.tasks.splice(index, 1);
+    return true;
+  }
+  return false;
+};
+ToDoList.prototype.taskCount = function() {
+  return this.tasks.length;
+};
