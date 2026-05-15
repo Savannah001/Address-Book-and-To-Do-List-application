@@ -23,3 +23,13 @@ ToDoList.prototype.addTask = function(task) {
 ToDoList.prototype.getAllTasks = function() {
   return this.tasks;
 };
+//returning incomplete tasks
+ToDoList.prototype.getActiveTasks = function() {
+  var active = [];
+  for (var i = 0; i < this.tasks.length; i++) {
+    if (this.tasks[i].completed === false) {
+      active.push(this.tasks[i]);
+    }
+  }
+  return active;
+};
