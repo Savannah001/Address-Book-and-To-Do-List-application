@@ -30,3 +30,11 @@ AddressBook.prototype.getContactByIndex = function(index) {
   }
   return null;
 };
+//deleting a contact by their index position
+AddressBook.prototype.deleteContact = function(index) {
+  if (index >= 0 && index < this.contacts.length) {
+    this.contacts.splice(index, 1);
+    return true;
+  }
+  return false;
+};
