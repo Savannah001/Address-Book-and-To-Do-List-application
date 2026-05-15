@@ -63,6 +63,33 @@
         <div id="contact-detail-content"></div>
         <button id="close-detail-btn" class="btn-secondary" style="margin-top:1rem;">Back to List</button>
       </div>
-    </section>     
+    </section>
+<!-- To do List Section -->
+    <section id="section-todo" class="tab-content">
+      <!-- Add New Task Form -->
+      <div class="card">
+        <h2>Add New Task</h2>
+        <form id="task-form">
+          <div class="form-group">
+            <label for="taskDescription">What do you need to do?</label>
+            <input type="text" id="taskDescription" class="form-input" placeholder="Buy groceries..." required>
+          </div>
+          <button type="submit" class="btn-primary">Add Task</button>
+        </form>
+      </div>
+
+      <!-- Task List -->
+      <div class="card">
+        <h2>My Tasks</h2>
+        <div id="task-list">
+          <p class="empty-message">No tasks added yet. Add your first task above.</p>
+        </div>
+      </div>
+      <!-- Completed Tasks -->
+      <div class="card" id="completed-section" style="display:none;">
+        <h2>Completed</h2>
+        <div id="completed-list"></div>
+      </div>
+    </section> 
 </main>  
 </body>    
