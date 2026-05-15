@@ -197,3 +197,9 @@ function deleteTask(index) {
   myToDoList.deleteTask(index);
   renderTaskLists();
 }
+//restarting
+document.addEventListener('DOMContentLoaded', function() {
+  initTabs();
+  initAddressBookUI();
+  initTodoUI();
+});
