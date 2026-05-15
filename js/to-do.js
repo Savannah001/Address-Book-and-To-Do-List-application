@@ -11,3 +11,7 @@ Task.prototype.markComplete = function() {
 Task.prototype.markIncomplete = function() {
   this.completed = false;
 };
+//Manage collection of tasks
+function ToDoList() {
+  this.tasks = [];
+}
