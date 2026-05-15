@@ -51,3 +51,24 @@ function initAddressBookUI() {
     // Refreshing the contact list on the page
     renderContactList();
   });
+  // Back to List button for contact details
+  var closeDetailBtn = document.getElementById('close-detail-btn');
+  closeDetailBtn.addEventListener('click', function() {
+    document.getElementById('contact-detail-card').style.display = 'none';
+    // Showing the contact list and form again
+    document.querySelector('#section-address .card:nth-child(1)').style.display = '';
+    document.querySelector('#section-address .card:nth-child(2)').style.display = '';
+  });
+  renderContactList();
+}
+
+// Display all contacts on the page
+function renderContactList() {
+  var container = document.getElementById('contact-list');
+  var contacts = myAddressBook.getAllContacts();
+
+  // If there are no contacts, show an empty message
+  if (contacts.length === 0) {
+    container.innerHTML = '<p class="empty-message">No contacts added yet. Add your first contact above.</p>';
+    return;
+  }
